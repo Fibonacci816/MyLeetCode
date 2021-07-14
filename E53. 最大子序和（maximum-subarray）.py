@@ -1,7 +1,7 @@
 class Solution:
 	# 时间O(n) 空间O(1)
     def maxSubArray(self, nums: List[int]) -> int:
-        res = -float('inf')
+        res = -float('inf')  # 或者res = nums[0]
         s = 0
         for num in nums:
             s += num

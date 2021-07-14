@@ -64,7 +64,7 @@ class Solution(object):
         
         return quick_sort(0, n-1)
 
-        # 自建堆，排序过程中返回目标
+    # 自建堆，排序过程中返回目标
     def findKthLargest3(self, nums: List[int], k: int) -> int:
         def heappy(i, max_size):
             parent = i
