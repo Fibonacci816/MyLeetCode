@@ -31,3 +31,30 @@ class Solution:
         while l2:
             l1.next, l2.next, l1, l2 = l2, l1.next, l1.next, l2.next
         return head
+
+
+    # 二刷
+    def reorderList2(self, head: ListNode) -> None:
+        """
+        Do not return anything, modify head in-place instead.
+        """
+        def reverse(head):
+            p, q = None, head
+            while q:
+                q.next, p, q = p, q, q.next
+            return p
+
+        def find_half(head):
+            p, q = head, head.next
+            while q and q.next:
+                p = p.next
+                q = q.next.next
+            return p
+
+        half = find_half(head)
+        head2 = reverse(half.next)
+        half.next = None
+        head1 = head
+        while head2:
+            head1.next, head2.next, head1, head2 = head2, head1.next, head1.next, head2.next
+        return head
