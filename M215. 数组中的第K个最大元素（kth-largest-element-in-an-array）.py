@@ -66,6 +66,7 @@ class Solution(object):
 
     # 自建堆，排序过程中返回目标
     def findKthLargest3(self, nums: List[int], k: int) -> int:
+        # 最大堆的调整
         def heappy(i, max_size):
             parent = i
             while 2 * parent + 1 < max_size:

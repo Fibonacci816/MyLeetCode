@@ -5,6 +5,7 @@ class Solution:
         def backtrack(path):
             if len(path) == len(nums):
                 res.append(path)
+                return
             for num in nums:
                 if num in path:
                     continue
