@@ -19,7 +19,7 @@ class Solution:
             strs = res
         return strs[0]
     
-    # 从第一位开始，判断是否所有字符串在相同位置的字符都相同
+    # 逐位置判断是否所有字符串在相同位置的字符都相同
     # 如果在第i位判断为False，则返回任意字符串的前i位（不包括第i位）            
     def longestCommonPrefix2(self, strs: List[str]) -> str:
         n = len(strs)
