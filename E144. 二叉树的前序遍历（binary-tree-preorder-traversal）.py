@@ -5,17 +5,16 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    # 出栈时添加元素
-    def inorderTraversal(self, root: TreeNode) -> List[int]:
-        inorder = []
+    # 入栈时添加元素
+    def preorderTraversal(self, root: TreeNode) -> List[int]:
         stack = []
         node = root
+        res = []
         while stack or node:
             while node:
+                res.append(node.val)
                 stack.append(node)
                 node = node.left
             node = stack.pop()
-            inorder.append(node.val)
             node = node.right
-                
-        return inorder
+        return res
