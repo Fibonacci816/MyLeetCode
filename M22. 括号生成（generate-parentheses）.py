@@ -37,4 +37,4 @@ class Solution:
                 generate(left, right - 1, generated + ')')
         generate(n, n, '')
         return res
-
+        
