@@ -23,7 +23,7 @@ class Solution:
                 res[level].append(child.val)
         return res
 
-    # 每一层循环一次，每次循环得到当前层节点的所有children
+    # 每一层循环一次，每次循环得到当前层节点的所有节点children的val
     def levelOrder2(self, root: 'Node') -> List[List[int]]:
         if not root:
             return []
@@ -37,3 +37,17 @@ class Solution:
             if level_nodes:
                 res.append([child.val for child in childrens])
         return res
+
+    # 每一层循环一次，每次循环得到当前层节点的所有节点的val
+    def levelOrder3(self, root: 'Node') -> List[List[int]]:
+        ans = []
+        level_nodes = [root] if root else []
+        while level_nodes:
+            level_nodes_val = []
+            next_level_nodes = []
+            for node in level_nodes:
+                level_nodes_val.append(node.val)
+                next_level_nodes.extend(node.children)
+            ans.append(level_nodes_val)
+            level_nodes = next_level_nodes
+        return ans

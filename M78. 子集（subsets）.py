@@ -14,7 +14,7 @@ class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
         res = [[]]
         for num in nums:
-            res.extend([s + [num] for s in tmp_set])
+            res.extend([s + [num] for s in res])
         return res
     # 二进制位代表对应元素选不选
     # 时间O(n2^n) 空间O(n2^n)

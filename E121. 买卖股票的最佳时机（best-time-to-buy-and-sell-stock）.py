@@ -15,7 +15,7 @@ class Solution(object):
                 res = max(res, s) 
         return res
 
-    # 记录历史最小价格，求当前价格和历史低价的差值
+    # 记录历史最小价格，求当前价格和历史低价的差值与历史最大利润作比较
     def maxProfit(self, prices):
         ans, min_price = 0, inf
         for price in prices:

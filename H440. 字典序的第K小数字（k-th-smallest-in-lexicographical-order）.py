@@ -14,7 +14,7 @@ class Solution:
         return rank[-1]
 
     # 统计前缀
-    # 时间O(log_10^n)（常数项为10） 空间O(1)
+    # 时间O((logn)^2)（常数项为10） 空间O(1)
     def findKthNumber(self, n: int, k: int) -> int:
         # 相当于计算以prefix为根节点的十叉树节点总数
         def pre_count(prefix, n):
