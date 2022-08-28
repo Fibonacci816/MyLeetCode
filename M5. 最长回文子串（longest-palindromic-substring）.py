@@ -2,21 +2,19 @@ class Solution:
     # 中心扩散（每个位置向两边扩展）O(n^2)
     def longestPalindrome(self, s: str) -> str:
         n = len(s)
-        res = ''
+        start, max_len = 0, 0
         for i in range(n):
-            l = 0
-            j = i  # i，j之间的字符都相同
-            while j+1 < n and s[j+1] == s[i]:
+            j = i
+            while j + 1 < n and s[i] == s[j+1]:
                 j += 1
-            while i-l >= 0 and j+l < n:
-                if s[i-l] == s[j+l]:
-                    tmp = s[i-l:j+l+1]
-                else:
-                    break
+            l = 1
+            while i - l >= 0 and j + l < n and s[i-l] == s[j+l]:
                 l += 1
-            if len(tmp) > len(res):
-                res = tmp
-        return res
+            cur_len = j + l - (i - l) - 1
+            if cur_len > max_len:
+                start = i - l + 1
+                max_len = cur_len
+        return s[start:start+max_len]
 
     # 动态规划O(n^2)
     def longestPalindrome(self, s: str) -> str:
